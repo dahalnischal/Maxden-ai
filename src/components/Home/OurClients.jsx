@@ -1,6 +1,20 @@
 import React from "react";
+import { useState } from "react";
+import { Dialog } from "primereact/dialog";
+import Project1 from "../Dialog/Projects/Project1";
+import Project2 from "../Dialog/Projects/Project2";
+import ProjectDialog from "../Dialog/Projects/Project3";
+import Project4 from "../Dialog/Projects/Project4";
+import Project5 from "../Dialog/Projects/Project5";
+import Project6 from "../Dialog/Projects/Project6";
 
 const OurClients = () => {
+  const [project1, setProject1] = useState(false);
+  const [project2, setProject2] = useState(false);
+  const [project3, setProject3] = useState(false);
+  const [project4, setProject4] = useState(false);
+  const [project5, setProject5] = useState(false);
+  const [project6, setProject6] = useState(false);
   return (
     <section className="our-clients">
       <div className="client-wraps">
@@ -25,7 +39,7 @@ const OurClients = () => {
             </div>
           </div>
           <div className="clients-logos-wraps">
-            <div className="logos">
+            <div className="logos" onClick={() => setProject1(true)}>
               <img
                 src="assets/images/yota.png"
                 alt=""
@@ -33,7 +47,7 @@ const OurClients = () => {
               />
             </div>
 
-            <div className="logos">
+            <div className="logos" onClick={() => setProject2(true)}>
               <img
                 src="assets/images/Avito_logo2.png"
                 alt=""
@@ -41,21 +55,21 @@ const OurClients = () => {
               />
             </div>
 
-            <div className="logos">
+            <div className="logos" onClick={() => setProject3(true)}>
               <img
                 src="assets/images/metrica.png"
                 alt=""
                 className="client-logo img-responsive"
               />
             </div>
-            <div className="logos">
+            <div className="logos" onClick={() => setProject4(true)}>
               <img
                 src="assets/images/raenpom.png"
                 alt=""
                 className="client-logo img-responsive"
               />
             </div>
-            <div className="logos">
+            <div className="logos" onClick={() => setProject5(true)}>
               <img
                 src="assets/images/sk.png"
                 alt=""
@@ -63,7 +77,7 @@ const OurClients = () => {
               />
             </div>
 
-            <div className="logos">
+            <div className="logos" onClick={() => setProject6(true)}>
               <img
                 src="assets/images/gnezdo.png"
                 alt=""
@@ -89,6 +103,49 @@ const OurClients = () => {
           <h2>пoд задачи бизнеса</h2>
         </div>
       </div>
+
+      <Dialog
+        visible={project1}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project1 setProject1={setProject1} />
+      </Dialog>
+      <Dialog
+        visible={project2}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project2 setProject2={setProject2} />
+      </Dialog>
+      <Dialog
+        visible={project3}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <ProjectDialog setProject3={setProject3} />
+      </Dialog>
+      <Dialog
+        visible={project4}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project4 setProject4={setProject4} />
+      </Dialog>
+      <Dialog
+        visible={project5}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project5 setProject5={setProject5} />
+      </Dialog>
+      <Dialog
+        visible={project6}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project6 setProject6={setProject6} />
+      </Dialog>
     </section>
   );
 };

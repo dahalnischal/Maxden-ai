@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import ContactSection from "../src/components/Home/ContactSection";
 import Services from "./components/Pages/Services";
+import About from "./components/Pages/About";
 const App = () => {
   return (
     <main>
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/About" element={<About />} />
         </Routes>
         <ContactSection />
 

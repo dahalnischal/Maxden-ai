@@ -3,6 +3,11 @@ import React from "react";
 const MachineIntegrate = () => {
   return (
     <section className="m-integrate">
+      <div className="dots">
+        <img src="assets/images/Dot.svg" alt="dot" />
+        <img src="assets/images/Dot.svg" alt="dot" />
+      </div>
+      <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
       <div className="m-integrate-wraps">
         <div className="topicwraps">
           <div className="heading">

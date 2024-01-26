@@ -3,6 +3,10 @@ import React from "react";
 const NeuroIntegrate = () => {
   return (
     <section className="integrate">
+      <div className="dots">
+        <img src="assets/images/Dot.svg" alt="dot" />
+        <img src="assets/images/Dot.svg" alt="dot" />
+      </div>
       <div className="integrate-wraps">
         <div className="topicwraps">
           <div className="heading">
@@ -15,6 +19,11 @@ const NeuroIntegrate = () => {
         </div>
 
         <div className="integrate-grid-wraps">
+          <img
+            src="assets/images/Ellipse1.png"
+            alt="ball"
+            className="ellipse1"
+          />
           <div className="integrate-grid">
             <div className="integrate-card">
               <div className="icon-wraps">
