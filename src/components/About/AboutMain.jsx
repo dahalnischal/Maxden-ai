@@ -3,11 +3,15 @@ import React from "react";
 const AboutMain = () => {
   return (
     <section className="about-main">
+      <a href="" className="scroll-dowm">
+        <img src="assets/images/down-arrow.svg" alt="arrow" />
+      </a>
       <div className="about-wraps">
         <div className="about-heading">
           <h1>maxden.ai - Ваш Надежный Партнер в Мире ИИ</h1>
         </div>
         <div className="counter-wraps">
+          <img src="assets/images/Dot.svg" alt="dot" className="dot" />
           <div className="value-wraps">
             <h1>4+</h1>
             <span>лет опыта работы</span>

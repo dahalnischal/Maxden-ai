@@ -4,6 +4,7 @@ const NeedSection = () => {
   return (
     <section className="need">
       <div className="need-wraps">
+        <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
         <div className="need-flex-wraps">
           <div className="image-wraps">
             <img src="assets/images/bot1.png" alt="bot" className="bot-img" />
