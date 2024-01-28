@@ -2,19 +2,19 @@ import { Dialog } from "primereact/dialog";
 import React from "react";
 import { useState } from "react";
 import ContactDialog from "../Dialog/ContactDialog";
-import Neuro1 from "../Dialog/Neuro/Neuro1";
-import Neuro2 from "../Dialog/Neuro/Neuro2";
-import Neuro3 from "../Dialog/Neuro/Neuro3";
-import Neuro4 from "../Dialog/Neuro/Neuro4";
-import {  ScrollParallax } from "react-just-parallax";
+import Project1 from "../Dialog/Projects/Project1";
+import Project2 from "../Dialog/Projects/Project2";
+import Project5 from "../Dialog/Projects/Project5";
+import Project8 from "../Dialog/Projects/Project8";
+import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
 
 const NeuroSection = () => {
   const [visible, setVisible] = useState(false);
-  const [neuro1, setNeuro1] = useState(false);
-  const [neuro2, setNeuro2] = useState(false);
-  const [neuro3, setNeuro3] = useState(false);
-  const [neuro4, setNeuro4] = useState(false);
+  const [project1, setProject1] = useState(false);
+  const [project2, setProject2] = useState(false);
+  const [project5, setProject5] = useState(false);
+  const [project8, setProject8] = useState(false);
   const ref = useRef();
   return (
     <section className="neuro-sec">
@@ -58,7 +58,10 @@ const NeuroSection = () => {
               </div>
               <div className="features-grid">
                 <div className="feature-grid-wrapper">
-                  <div className="feature-card" onClick={() => setNeuro1(true)}>
+                  <div
+                    className="feature-card"
+                    onClick={() => setProject8(true)}
+                  >
                     <div className="icon-wraps">
                       <img
                         src="assets/images/Automation.png"
@@ -73,7 +76,10 @@ const NeuroSection = () => {
                       amoCRM, Microsoft Office, Google Docs
                     </p>
                   </div>
-                  <div className="feature-card" onClick={() => setNeuro3(true)}>
+                  <div
+                    className="feature-card"
+                    onClick={() => setProject2(true)}
+                  >
                     <div className="icon-wraps">
                       <img
                         src="assets/images/Generating.png"
@@ -89,7 +95,10 @@ const NeuroSection = () => {
                   </div>
                 </div>
                 <div className="feature-grid-wrapper">
-                  <div className="feature-card" onClick={() => setNeuro2(true)}>
+                  <div
+                    className="feature-card"
+                    onClick={() => setProject1(true)}
+                  >
                     <div className="icon-wraps">
                       <img
                         src="assets/images/Personalized.png"
@@ -104,7 +113,10 @@ const NeuroSection = () => {
                       мобильными приложениями
                     </p>
                   </div>
-                  <div className="feature-card" onClick={() => setNeuro4(true)}>
+                  <div
+                    className="feature-card"
+                    onClick={() => setProject5(true)}
+                  >
                     <div className="icon-wraps">
                       <img
                         src="assets/images/analytics.png"
@@ -132,34 +144,33 @@ const NeuroSection = () => {
       >
         <ContactDialog setVisible={setVisible} />
       </Dialog>
-
       <Dialog
-        visible={neuro1}
+        visible={project8}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <Neuro1 setNeuro1={setNeuro1} />
+        <Project8 setProject8={setProject8} />
       </Dialog>
       <Dialog
-        visible={neuro2}
+        visible={project1}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <Neuro2 setNeuro2={setNeuro2} />
+        <Project1 setProject1={setProject1} />
       </Dialog>
       <Dialog
-        visible={neuro3}
+        visible={project2}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <Neuro3 setNeuro3={setNeuro3} />
+        <Project2 setProject2={setProject2} />
       </Dialog>
       <Dialog
-        visible={neuro4}
+        visible={project5}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <Neuro4 setNeuro4={setNeuro4} />
+        <Project5 setProject5={setProject5} />
       </Dialog>
     </section>
   );

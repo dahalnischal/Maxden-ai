@@ -2,17 +2,17 @@ import { Dialog } from "primereact/dialog";
 import React from "react";
 import { useState } from "react";
 import ContactDialog from "../Dialog/ContactDialog";
-import MachineDialog1 from "../Dialog/MachineLearning/MachineDialog1";
-import MachineDialog2 from "../Dialog/MachineLearning/MachineDialog2";
-import MachineDialog3 from "../Dialog/MachineLearning/MachineDialog3";
+import Project3 from "../Dialog/Projects/Project3";
+import Project7 from "../Dialog/Projects/Project7";
+import Project6 from "../Dialog/Projects/Project6";
+import Project4 from "../Dialog/Projects/Project4";
 import { ScrollParallax } from "react-just-parallax";
-import MachineDialog4 from "../Dialog/MachineLearning/MachineDialog4";
 const MachineSection = () => {
   const [visible, setVisible] = useState(false);
-  const [machine1, setMachine1] = useState(false);
-  const [machine2, setMachine2] = useState(false);
-  const [machine3, setMachine3] = useState(false);
-  const [machine4, setMachine4] = useState(false);
+  const [project3, setProject3] = useState(false);
+  const [project4, setProject4] = useState(false);
+  const [project6, setProject6] = useState(false);
+  const [project7, setProject7] = useState(false);
   return (
     <section className="machine">
       <div className="machine-wraps">
@@ -43,7 +43,7 @@ const MachineSection = () => {
             <img src="assets/images/brain.png" alt="brain" className="brain" />
             <div className="m-feature-grid">
               <div className="wrappers-feature">
-                <div className="feature-card" onClick={() => setMachine1(true)}>
+                <div className="feature-card" onClick={() => setProject4(true)}>
                   <div className="icon-wraps">
                     <img
                       src="assets/images/sight.png"
@@ -58,7 +58,7 @@ const MachineSection = () => {
                   </p>
                 </div>
 
-                <div className="feature-card" onClick={() => setMachine2(true)}>
+                <div className="feature-card" onClick={() => setProject7(true)}>
                   <div className="icon-wraps">
                     <img
                       src="assets/images/Recommender.png"
@@ -74,7 +74,7 @@ const MachineSection = () => {
                 </div>
               </div>
               <div className="wrappers-feature">
-                <div className="feature-card" onClick={() => setMachine3(true)}>
+                <div className="feature-card" onClick={() => setProject3(true)}>
                   <div className="icon-wraps">
                     <img
                       src="assets/images/Machine.png"
@@ -88,7 +88,7 @@ const MachineSection = () => {
                     и контроля качества
                   </p>
                 </div>
-                <div className="feature-card" onClick={() => setMachine4(true)}>
+                <div className="feature-card" onClick={() => setProject6(true)}>
                   <div className="icon-wraps">
                     <img
                       src="assets/images/Decision.png"
@@ -113,6 +113,7 @@ const MachineSection = () => {
           </div>
         </ScrollParallax>
       </div>
+
       <Dialog
         visible={visible}
         className="hide-sidebar-dialog"
@@ -122,32 +123,32 @@ const MachineSection = () => {
         <ContactDialog setVisible={setVisible} />
       </Dialog>
       <Dialog
-        visible={machine1}
+        visible={project3}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <MachineDialog1 setMachine1={setMachine1} />
+        <Project3 setProject3={setProject3} />
       </Dialog>
       <Dialog
-        visible={machine2}
+        visible={project4}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <MachineDialog2 setMachine2={setMachine2} />
+        <Project4 setProject4={setProject4} />
       </Dialog>
       <Dialog
-        visible={machine3}
+        visible={project6}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <MachineDialog3 setMachine3={setMachine3} />
+        <Project6 setProject6={setProject6} />
       </Dialog>
       <Dialog
-        visible={machine4}
+        visible={project7}
         className="hide-sidebar-dialog"
         showHeader={false}
       >
-        <MachineDialog4 setMachine4={setMachine4} />
+        <Project7 setProject7={setProject7} />
       </Dialog>
     </section>
   );

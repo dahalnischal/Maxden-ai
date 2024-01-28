@@ -17,7 +17,7 @@ const SecondProjectSection = () => {
                 <h2> Агрегация и Оптимизация Информации на Metrica.guru</h2>
               </div>
               <div>
-                <img src="assets/images/mertica.png" alt="metrica" />
+                <img src="assets/images/metrica.png" alt="metrica" />
               </div>
               <div className="listed-paragraph">
                 <div>

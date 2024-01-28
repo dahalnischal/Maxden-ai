@@ -1,6 +1,9 @@
+import { Dialog } from "primereact/dialog";
 import React from "react";
-
+import { useState } from "react";
+import ContactDialog from "../Dialog/ContactDialog";
 const Procedure = () => {
+  const [visible, setVisible] = useState(false);
   return (
     <section className="procedure">
       <div className="dots">
@@ -67,10 +70,22 @@ const Procedure = () => {
           </div>
         </div>
         <div className="btns-wraps">
-          <a href="" title="Обсудить проект" className="btn-p">
+          <div
+            className="btn-p"
+            onClick={() => setVisible(true)}
+            title="Обсудить проект"
+          >
             Обсудить проект
-          </a>
+          </div>
         </div>
+        <Dialog
+          visible={visible}
+          className="hide-sidebar-dialog"
+          showHeader={false}
+          position={"top"}
+        >
+          <ContactDialog setVisible={setVisible} />
+        </Dialog>
       </div>
     </section>
   );

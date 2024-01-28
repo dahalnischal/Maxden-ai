@@ -17,8 +17,8 @@ const QuestionDialog = ({ setQuestion }) => {
             <textarea
               name=""
               id=""
-              cols="5"
-              rows="5"
+              cols="1"
+              rows="1"
               placeholder="Сообщение"
             ></textarea>
             <button className="btn-p" type="submit">

@@ -15,10 +15,18 @@ const Employee = () => {
         <div className="employees-flex-wraps">
           <div className="employee-card">
             <div className="employee-details">
-              <h2>
-                Максим Кучер <br />
-                <span>CEO</span>
-              </h2>
+              <div className="em-wraps">
+                <h2>
+                  Максим Кучер <br />
+                  <span>CEO</span>
+                </h2>
+                <img
+                  src="assets/images/Maxim.png"
+                  alt="Maxim"
+                  className=" no-emp"
+                />
+              </div>
+
               <p>
                 Основатель и генеральный директор Maxden.Ai, является
                 вдохновителем и движущей силой компании. Под его руководством
@@ -40,11 +48,18 @@ const Employee = () => {
           </div>
           <div className="employee-card">
             <div className="employee-details">
-              <h2>
-                Рувим Дериволков
-                <br />
-                <span>Технический Директор </span>
-              </h2>
+              <div className="em-wraps">
+                <h2>
+                  Рувим Дериволков
+                  <br />
+                  <span>Технический Директор </span>
+                </h2>
+                <img
+                  src="assets/images/Ruvim.png"
+                  alt="Ruvim"
+                  className="no-emp new"
+                />
+              </div>
               <p>
                 Эксперт в современных технологиях, особенно в сфере
                 искусственного интеллекта и машинного обучения. Он обладает
@@ -66,11 +81,19 @@ const Employee = () => {
           </div>
           <div className="employee-card">
             <div className="employee-details">
-              <h2>
-                Даниил Манкевич
-                <br />
-                <span>Архитектор Систем</span>
-              </h2>
+              <div className="em-wraps">
+                <h2>
+                  Даниил Манкевич
+                  <br />
+                  <span>Архитектор Систем</span>
+                </h2>
+                <img
+                  src="assets/images/Daniil.png"
+                  alt="Daniil"
+                  className="no-emp new"
+                />
+              </div>
+
               <p>
                 Даниил имеет уникальный опыт работы над крупномасштабными
                 ИИ-проектами, включая разработку систем умного города и
@@ -90,11 +113,19 @@ const Employee = () => {
           </div>
           <div className="employee-card">
             <div className="employee-details">
-              <h2>
-                Даниил Гуйван
-                <br />
-                <span>Проектный Менеджер </span>
-              </h2>
+              <div className="em-wraps">
+                <h2>
+                  Даниил Гуйван
+                  <br />
+                  <span>Проектный Менеджер </span>
+                </h2>
+                <img
+                  src="assets/images/Daniel.png"
+                  alt="Daniel"
+                  className="no-emp new"
+                />
+              </div>
+
               <p>
                 Даниил, проектный менеджер, известен своим уникальным подходом к
                 управлению сложными проектами в сфере высоких технологий. Он

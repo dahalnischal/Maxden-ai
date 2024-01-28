@@ -1,6 +1,18 @@
+import { Dialog } from "primereact/dialog";
 import React from "react";
+import { useState } from "react";
+import ContactDialog from "../Dialog/ContactDialog";
+import Project1 from "../Dialog/Projects/Project1";
+import Project2 from "../Dialog/Projects/Project2";
+import Project5 from "../Dialog/Projects/Project5";
+import Project8 from "../Dialog/Projects/Project8";
 
 const NeuroIntegrate = () => {
+  const [visible, setVisible] = useState(false);
+  const [project1, setProject1] = useState(false);
+  const [project2, setProject2] = useState(false);
+  const [project5, setProject5] = useState(false);
+  const [project8, setProject8] = useState(false);
   return (
     <section className="integrate">
       <div className="dots">
@@ -11,9 +23,13 @@ const NeuroIntegrate = () => {
         <div className="topicwraps">
           <div className="heading">
             <h2>Интеграция нейросотрудника</h2>
-            <a href="" title="Обсудить проект" className="btn-p">
+            <div
+              className="btn-p"
+              onClick={() => setVisible(true)}
+              title="Обсудить проект"
+            >
               Обсудить проект
-            </a>
+            </div>
           </div>
           <img src="assets/images/bot.png" alt="bot" className="bot-img" />
         </div>
@@ -25,7 +41,7 @@ const NeuroIntegrate = () => {
             className="ellipse1"
           />
           <div className="integrate-grid">
-            <div className="integrate-card">
+            <div className="integrate-card" onClick={() => setProject8(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/Automation.png"
@@ -46,7 +62,7 @@ const NeuroIntegrate = () => {
                 Office, Google Docs и другими.
               </p>
             </div>
-            <div className="integrate-card">
+            <div className="integrate-card" onClick={() => setProject1(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/Personalized.png"
@@ -67,7 +83,7 @@ const NeuroIntegrate = () => {
                 обеспечивать бесперебойную поддержку 24/7.
               </p>
             </div>
-            <div className="integrate-card">
+            <div className="integrate-card" onClick={() => setProject2(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/analytics.png"
@@ -87,7 +103,7 @@ const NeuroIntegrate = () => {
                 рекомендации по оптимизации бизнес-процессов.
               </p>
             </div>
-            <div className="integrate-card">
+            <div className="integrate-card" onClick={() => setProject5(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/Generating.png"
@@ -104,6 +120,42 @@ const NeuroIntegrate = () => {
           </div>
         </div>
       </div>
+      <Dialog
+        visible={visible}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+        position={"top"}
+      >
+        <ContactDialog setVisible={setVisible} />
+      </Dialog>
+      <Dialog
+        visible={project8}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project8 setProject8={setProject8} />
+      </Dialog>
+      <Dialog
+        visible={project1}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project1 setProject1={setProject1} />
+      </Dialog>
+      <Dialog
+        visible={project2}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project2 setProject2={setProject2} />
+      </Dialog>
+      <Dialog
+        visible={project5}
+        className="hide-sidebar-dialog"
+        showHeader={false}
+      >
+        <Project5 setProject5={setProject5} />
+      </Dialog>
     </section>
   );
 };

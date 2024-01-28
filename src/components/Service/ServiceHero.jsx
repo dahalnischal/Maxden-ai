@@ -1,6 +1,11 @@
+import { Dialog } from "primereact/dialog";
 import React from "react";
-
+import { useState } from "react";
+import ContactDialog from "../Dialog/ContactDialog";
+import QuestionDialog from "../Dialog/QuestionDialog";
 const ServiceHero = () => {
+  const [visible, setVisible] = useState(false);
+  const [question, setQuestion] = useState(false);
   return (
     <section className="service-main">
       <a href="" className="scroll-dowm">
@@ -37,15 +42,39 @@ const ServiceHero = () => {
               решение стандартных запросов клиентов.{" "}
             </p>
             <div className="btns-wraps">
-              <a href="" className="btn-bdr" title="Задать вопрос">
+              <div
+                className="btn-bdr"
+                onClick={() => setQuestion(true)}
+                title="Задать вопрос"
+              >
                 Задать вопрос
-              </a>
-              <a href="" className="btn-p" title="Рассчитать стоимость">
+              </div>
+              <div
+                className="btn-p"
+                onClick={() => setVisible(true)}
+                title="Рассчитать стоимость"
+              >
                 Рассчитать стоимость
-              </a>
+              </div>
             </div>
           </div>
         </div>
+        <Dialog
+          visible={question}
+          className="hide-sidebar-dialog"
+          showHeader={false}
+          position={"top"}
+        >
+          <QuestionDialog setQuestion={setQuestion} />
+        </Dialog>
+        <Dialog
+          visible={visible}
+          className="hide-sidebar-dialog"
+          showHeader={false}
+          position={"top"}
+        >
+          <ContactDialog setVisible={setVisible} />
+        </Dialog>
       </div>
     </section>
   );

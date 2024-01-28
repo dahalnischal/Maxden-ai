@@ -53,8 +53,8 @@ const ThreeCard = () => {
       <div className="integrate-card">
         <div className="icon-wraps">
           <img
-            src="assets/images/Automation.png"
-            alt="Automation"
+            src="assets/images/flexibiity.png"
+            alt="flexibiity"
             className="icon"
           />
         </div>
