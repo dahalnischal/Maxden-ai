@@ -3776,7 +3776,7 @@ section {
 
   .nav-button {
     position: absolute;
-    bottom: 35%;
+    bottom: 250px;
     width: 100%;
     align-items: center;
     display: flex;
