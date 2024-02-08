@@ -1,10 +1,17 @@
 import React from "react";
+import { ScrollParallax } from "react-just-parallax";
 
 const NeedSection = () => {
   return (
     <section className="need">
       <div className="need-wraps">
-        <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+        <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+          <img
+            src="assets/images/Ellipse1.png"
+            alt="ball"
+            className="ellipse1"
+          />
+        </ScrollParallax>
         <div className="need-flex-wraps">
           <div className="image-wraps">
             <img src="assets/images/bot1.png" alt="bot" className="bot-img" />

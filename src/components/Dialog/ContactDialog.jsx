@@ -10,18 +10,42 @@ const ContactDialog = ({ setVisible }) => {
           </div>
           <h2>Свяжитесь с нами</h2>
           <div>
-            <h3>8 981 884-09-55</h3>
-            <h4>maxden.ai@gmail.com</h4>
+            <h3>8 999 226-81-48</h3>
+
+            <a href="mailto:maxden.ai.com@gmail.com" target="_blank">
+              <h4>maxden.ai.com@gmail.com</h4>
+            </a>
           </div>
           <div className="btns-wraps">
-            <a href="" className="btn-bdr">
-              <img src="assets/images/telegram.png" alt="telegram" />
+            <a
+              href="https://t.me/cucer_maxim"
+              target="_blank"
+              className="btn-bdr"
+            >
+              <img
+                src="assets/images/telegram.png"
+                className="brdr-btm-image"
+                alt="telegram"
+              />
               Написать в Телеграм
             </a>
-            <a href="" className="btn-bdr">
-              <img src="assets/images/whatsapp.png" alt="whatsapp" />
+            <a
+              target="_blank"
+              href="https://wa.me/79992268148"
+              className="btn-bdr"
+            >
+              <img
+                src="assets/images/whatsapp.png"
+                className="brdr-btm-image"
+                alt="whatsapp"
+              />
               Написать в Ватсап
             </a>
+          </div>
+          <div className="mbl-close-button">
+            <div className="btn-p" onClick={() => setVisible(false)}>
+              <span>Вернуться на сайт</span>
+            </div>
           </div>
         </div>
       </div>

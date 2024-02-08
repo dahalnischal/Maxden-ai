@@ -1,17 +1,20 @@
 import React from "react";
+import { ScrollParallax } from "react-just-parallax";
 
-const AboutMain = () => {
+const AboutMain = ({ scrollToElement }) => {
   return (
     <section className="about-main">
-      <a href="" className="scroll-dowm">
+      <div className="scroll-dowm cursor-pointer" onClick={scrollToElement}>
         <img src="assets/images/down-arrow.svg" alt="arrow" />
-      </a>
+      </div>
       <div className="about-wraps">
         <div className="about-heading">
           <h1>maxden.ai - Ваш Надежный Партнер в Мире ИИ</h1>
         </div>
         <div className="counter-wraps">
-          <img src="assets/images/Dot.svg" alt="dot" className="dot" />
+          <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+            <img src="assets/images/Dot.svg" alt="dot" className="dot" />
+          </ScrollParallax>
           <div className="value-wraps">
             <h1>4+</h1>
             <span>лет опыта работы</span>

@@ -1,13 +1,19 @@
 import React from "react";
+import { ScrollParallax } from "react-just-parallax";
 
 const Employee = () => {
   return (
     <section className="employee">
-      <div className="dots">
-        <img src="assets/images/Dot.svg" alt="dot" />
-        <img src="assets/images/Dot.svg" alt="dot" />
-      </div>
-      <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <div className="dots">
+          <img src="assets/images/Dot.svg" alt="dot" />
+          <img src="assets/images/Dot.svg" alt="dot" />
+        </div>
+      </ScrollParallax>
+
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+      </ScrollParallax>
       <div className="employee-wraps">
         <div className="heading">
           <h2>сотрудники</h2>
@@ -93,7 +99,6 @@ const Employee = () => {
                   className="no-emp new"
                 />
               </div>
-
               <p>
                 Даниил имеет уникальный опыт работы над крупномасштабными
                 ИИ-проектами, включая разработку систем умного города и
@@ -125,7 +130,6 @@ const Employee = () => {
                   className="no-emp new"
                 />
               </div>
-
               <p>
                 Даниил, проектный менеджер, известен своим уникальным подходом к
                 управлению сложными проектами в сфере высоких технологий. Он

@@ -1,16 +1,33 @@
 import { Dialog } from "primereact/dialog";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import ContactDialog from "../Dialog/ContactDialog";
 import QuestionDialog from "../Dialog/QuestionDialog";
-const ServiceHero = () => {
+
+const ServiceHero = ({ scrollToElement }) => {
   const [visible, setVisible] = useState(false);
   const [question, setQuestion] = useState(false);
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
     <section className="service-main">
-      <a href="" className="scroll-dowm">
+      <div className="scroll-dowm cursor-pointer" onClick={scrollToElement}>
         <img src="assets/images/down-arrow.svg" alt="arrow" />
-      </a>
+      </div>
       <div className="services-wraps">
         <div className="heading">
           <h1>
@@ -61,17 +78,33 @@ const ServiceHero = () => {
         </div>
         <Dialog
           visible={question}
-          className="hide-sidebar-dialog"
+          onHide={() => setQuestion(false)}
+          className="hide-sidebar-dialog contact-dialog-home"
           showHeader={false}
-          position={"top"}
+          position={windowSize[0] > 960 ? "top" : "bottom"}
+          maskStyle={
+            windowSize[0] > 960
+              ? { alignItems: "center" }
+              : { alignItems: "flex-end" }
+          }
+          blockScroll={true}
+          dismissableMask={true}
         >
           <QuestionDialog setQuestion={setQuestion} />
         </Dialog>
         <Dialog
           visible={visible}
-          className="hide-sidebar-dialog"
+          className="hide-sidebar-dialog contact-dialog-home"
           showHeader={false}
-          position={"top"}
+          position={windowSize[0] > 960 ? "top" : "bottom"}
+          maskStyle={
+            windowSize[0] > 960
+              ? { alignItems: "center" }
+              : { alignItems: "flex-end" }
+          }
+          blockScroll={true}
+          dismissableMask={true}
+          onHide={() => setVisible(false)}
         >
           <ContactDialog setVisible={setVisible} />
         </Dialog>

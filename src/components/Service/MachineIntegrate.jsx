@@ -1,25 +1,46 @@
 import { Dialog } from "primereact/dialog";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ScrollParallax } from "react-just-parallax";
 import ContactDialog from "../Dialog/ContactDialog";
 import Project3 from "../Dialog/Projects/Project3";
 import Project7 from "../Dialog/Projects/Project7";
 import Project6 from "../Dialog/Projects/Project6";
 import Project4 from "../Dialog/Projects/Project4";
-
 const MachineIntegrate = () => {
   const [visible, setVisible] = useState(false);
   const [project3, setProject3] = useState(false);
   const [project4, setProject4] = useState(false);
   const [project6, setProject6] = useState(false);
   const [project7, setProject7] = useState(false);
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
     <section className="m-integrate">
-      <div className="dots">
-        <img src="assets/images/Dot.svg" alt="dot" />
-        <img src="assets/images/Dot.svg" alt="dot" />
-      </div>
-      <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <div className="dots">
+          <img src="assets/images/Dot.svg" alt="dot" />
+          <img src="assets/images/Dot.svg" alt="dot" />
+        </div>
+      </ScrollParallax>
+      <ScrollParallax isAbsolutelyPositioned zIndex={-1} strength={-0.1}>
+        <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+      </ScrollParallax>
+
       <div className="m-integrate-wraps">
         <div className="topicwraps">
           <div className="heading">
@@ -36,6 +57,9 @@ const MachineIntegrate = () => {
         </div>
 
         <div className="m-integrate-grid-wraps">
+          <div className="mob-header">
+            <h2>Интеграция машинного обучения</h2>
+          </div>
           <div className="m-integrate-grid">
             <div className="integrate-card" onClick={() => setProject4(true)}>
               <div className="icon-wraps">
@@ -54,8 +78,8 @@ const MachineIntegrate = () => {
             <div className="integrate-card" onClick={() => setProject3(true)}>
               <div className="icon-wraps">
                 <img
-                  src="assets/images/Machine.png"
-                  alt="Machine"
+                  src="assets/images/Personalized.png"
+                  alt="Personalized"
                   className="icon"
                 />
               </div>
@@ -69,8 +93,8 @@ const MachineIntegrate = () => {
             <div className="integrate-card" onClick={() => setProject7(true)}>
               <div className="icon-wraps">
                 <img
-                  src="assets/images/Recommender.png"
-                  alt="Recommender"
+                  src="assets/images/analytics.png"
+                  alt="Analytics"
                   className="icon"
                 />
               </div>
@@ -85,8 +109,8 @@ const MachineIntegrate = () => {
             <div className="integrate-card" onClick={() => setProject6(true)}>
               <div className="icon-wraps">
                 <img
-                  src="assets/images/Decision.png"
-                  alt="Decision"
+                  src="assets/images/Generating.png"
+                  alt="Generating"
                   className="icon"
                 />
               </div>
@@ -102,41 +126,74 @@ const MachineIntegrate = () => {
               </p>
             </div>
           </div>
+          <div className="mob-btn">
+            <div
+              title="Обсудить проект"
+              className="btn-bdr"
+              onClick={() => setVisible(true)}
+            >
+              Обсудить проект
+            </div>
+          </div>
         </div>
       </div>
       <Dialog
         visible={visible}
-        className="hide-sidebar-dialog"
+        className="hide-sidebar-dialog contact-dialog-home"
         showHeader={false}
-        position={"top"}
+        position={windowSize[0] > 960 ? "top" : "bottom"}
+        maskStyle={
+          windowSize[0] > 960
+            ? { alignItems: "center" }
+            : { alignItems: "flex-end" }
+        }
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setVisible(false)}
       >
         <ContactDialog setVisible={setVisible} />
       </Dialog>
       <Dialog
         visible={project3}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject3(false)}
       >
         <Project3 setProject3={setProject3} />
       </Dialog>
       <Dialog
         visible={project4}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject4(false)}
       >
         <Project4 setProject4={setProject4} />
       </Dialog>
       <Dialog
         visible={project6}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject6(false)}
       >
         <Project6 setProject6={setProject6} />
       </Dialog>
       <Dialog
         visible={project7}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject7(false)}
       >
         <Project7 setProject7={setProject7} />
       </Dialog>

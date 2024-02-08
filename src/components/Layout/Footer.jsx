@@ -1,35 +1,41 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
+  const menuItems = [
+    {
+      title: "услуги",
+      link: "/services",
+    },
+    {
+      title: "портфолио",
+      link: "/portfolio",
+    },
+    {
+      title: "о нас",
+      link: "/about",
+    },
+  ];
   return (
     <section className="footer">
       <div className="footer-wraps">
         <div className="footer-main">
           <div className="footer-logo">
-            <a href="">
+            <Link to="/" title="Maxdenai">
               <img src="assets/images/maxden-logo-footer.png" alt="Maxdenai" />{" "}
-            </a>
+            </Link>
           </div>
+
           <ul className="footer-list">
+            {menuItems.map((e, index) => (
+              <li key={index}>
+                <Link to={e?.link} title={e.title}>
+                  {e.title}
+                </Link>
+              </li>
+            ))}
+
             <li>
-              <a href="" title="Услуги">
-                Услуги
-              </a>
-            </li>
-            <li>
-              <a href="" title="Портфолио">
-                Портфолио
-              </a>
-            </li>
-            <li>
-              <a href="" title="О нас">
-                О нас
-              </a>
-            </li>
-            <li>
-              <a href="" title="Контакты">
-                Контакты
-              </a>
+              <p title="контакты">контакты</p>
             </li>
           </ul>
         </div>

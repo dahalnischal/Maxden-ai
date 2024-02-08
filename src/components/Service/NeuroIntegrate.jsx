@@ -1,24 +1,42 @@
 import { Dialog } from "primereact/dialog";
 import React from "react";
-import { useState } from "react";
-import ContactDialog from "../Dialog/ContactDialog";
+import { ScrollParallax } from "react-just-parallax";
+import { useState, useEffect } from "react";
 import Project1 from "../Dialog/Projects/Project1";
 import Project2 from "../Dialog/Projects/Project2";
 import Project5 from "../Dialog/Projects/Project5";
 import Project8 from "../Dialog/Projects/Project8";
-
-const NeuroIntegrate = () => {
+import ContactDialog from "../Dialog/ContactDialog";
+const NeuroIntegrate = ({ targetRef }) => {
   const [visible, setVisible] = useState(false);
   const [project1, setProject1] = useState(false);
   const [project2, setProject2] = useState(false);
   const [project5, setProject5] = useState(false);
   const [project8, setProject8] = useState(false);
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
-    <section className="integrate">
-      <div className="dots">
-        <img src="assets/images/Dot.svg" alt="dot" />
-        <img src="assets/images/Dot.svg" alt="dot" />
-      </div>
+    <section className="integrate" ref={targetRef}>
+      <ScrollParallax isAbsolutelyPositioned zIndex={-1} strength={-0.1}>
+        <div className="dots">
+          <img src="assets/images/Dot.svg" alt="dot" />
+          <img src="assets/images/Dot.svg" alt="dot" />
+        </div>
+      </ScrollParallax>
       <div className="integrate-wraps">
         <div className="topicwraps">
           <div className="heading">
@@ -35,11 +53,16 @@ const NeuroIntegrate = () => {
         </div>
 
         <div className="integrate-grid-wraps">
-          <img
-            src="assets/images/Ellipse1.png"
-            alt="ball"
-            className="ellipse1"
-          />
+          <ScrollParallax isAbsolutelyPositioned zIndex={-1} strength={-0.1}>
+            <img
+              src="assets/images/Ellipse1.png"
+              alt="ball"
+              className="ellipse1"
+            />
+          </ScrollParallax>
+          <div className="mob-header">
+            <h2>Интеграция нейросотрудника</h2>
+          </div>
           <div className="integrate-grid">
             <div className="integrate-card" onClick={() => setProject8(true)}>
               <div className="icon-wraps">
@@ -83,7 +106,7 @@ const NeuroIntegrate = () => {
                 обеспечивать бесперебойную поддержку 24/7.
               </p>
             </div>
-            <div className="integrate-card" onClick={() => setProject2(true)}>
+            <div className="integrate-card" onClick={() => setProject5(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/analytics.png"
@@ -103,7 +126,7 @@ const NeuroIntegrate = () => {
                 рекомендации по оптимизации бизнес-процессов.
               </p>
             </div>
-            <div className="integrate-card" onClick={() => setProject5(true)}>
+            <div className="integrate-card" onClick={() => setProject2(true)}>
               <div className="icon-wraps">
                 <img
                   src="assets/images/Generating.png"
@@ -118,41 +141,74 @@ const NeuroIntegrate = () => {
               </p>
             </div>
           </div>
+          <div className="mob-btn">
+            <div
+              className="btn-p"
+              onClick={() => setVisible(true)}
+              title="Обсудить проект"
+            >
+              Обсудить проект
+            </div>
+          </div>
         </div>
       </div>
       <Dialog
         visible={visible}
-        className="hide-sidebar-dialog"
+        className="hide-sidebar-dialog contact-dialog-home"
         showHeader={false}
-        position={"top"}
+        position={windowSize[0] > 960 ? "top" : "bottom"}
+        maskStyle={
+          windowSize[0] > 960
+            ? { alignItems: "center" }
+            : { alignItems: "flex-end" }
+        }
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setVisible(false)}
       >
         <ContactDialog setVisible={setVisible} />
       </Dialog>
       <Dialog
         visible={project8}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject8(false)}
       >
         <Project8 setProject8={setProject8} />
       </Dialog>
       <Dialog
         visible={project1}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject1(false)}
       >
         <Project1 setProject1={setProject1} />
       </Dialog>
       <Dialog
         visible={project2}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject2(false)}
       >
         <Project2 setProject2={setProject2} />
       </Dialog>
       <Dialog
         visible={project5}
         className="hide-sidebar-dialog"
+        position={windowSize[0] > 960 ? "center" : "bottom"}
         showHeader={false}
+        blockScroll={true}
+        dismissableMask={true}
+        onHide={() => setProject5(false)}
       >
         <Project5 setProject5={setProject5} />
       </Dialog>
