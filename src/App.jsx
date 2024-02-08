@@ -7,6 +7,7 @@ import ContactSection from "../src/components/Home/ContactSection";
 import Services from "./components/Pages/Services";
 import About from "./components/Pages/About";
 import Portfolio from "./components/Pages/Portfolio";
+import SecondProjectSection from "./components/portfolio/SecondProjectSection";
 
 const App = () => {
   return (
@@ -16,11 +17,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio-second" element={<SecondProjectSection />} />
         </Routes>
         <ContactSection />
-
         <Footer />
       </BrowserRouter>
     </main>

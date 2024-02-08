@@ -80,7 +80,7 @@ const Project1 = ({ setProject1 }) => {
               </div>
             </div>
             <div className="btns">
-              <a href className="btn-bdr">
+              <a href="" className="btn-bdr">
                 Вернуться на сайт
               </a>
             </div>

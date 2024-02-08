@@ -1,17 +1,42 @@
 import { Dialog } from "primereact/dialog";
-import React from "react";
+import React, { useEffect } from "react";
+import { ScrollParallax } from "react-just-parallax";
 import { useState } from "react";
 import ContactDialog from "../Dialog/ContactDialog";
-const Procedure = () => {
+const Procedure = ({ targetRef }) => {
   const [visible, setVisible] = useState(false);
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   return (
-    <section className="procedure">
-      <div className="dots">
-        <img src="assets/images/Dot.svg" alt="dot" />
-        <img src="assets/images/Dot.svg" alt="dot" />
-      </div>
-      <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
-      <img src="assets/images/Dot.svg" alt="dot" className="dot" />
+    <section className="procedure" ref={targetRef}>
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <div className="dots">
+          <img src="assets/images/Dot.svg" alt="dot" />
+          <img src="assets/images/Dot.svg" alt="dot" />
+        </div>
+      </ScrollParallax>
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <img src="assets/images/Ellipse1.png" alt="ball" className="ellipse1" />
+      </ScrollParallax>
+
+      <ScrollParallax isAbsolutelyPositioned strength={-0.1} zIndex={-1}>
+        <img src="assets/images/Dot.svg" alt="dot" className="dot" />
+      </ScrollParallax>
       <div className="procedure-wrap">
         <div className="topic">
           <h2>Порядок разработки систем ИИ</h2>
@@ -80,9 +105,17 @@ const Procedure = () => {
         </div>
         <Dialog
           visible={visible}
-          className="hide-sidebar-dialog"
+          className="hide-sidebar-dialog contact-dialog-home"
           showHeader={false}
-          position={"top"}
+          position={windowSize[0] > 960 ? "top" : "bottom"}
+          maskStyle={
+            windowSize[0] > 960
+              ? { alignItems: "center" }
+              : { alignItems: "flex-end" }
+          }
+          blockScroll={true}
+          dismissableMask={true}
+          onHide={() => setVisible(false)}
         >
           <ContactDialog setVisible={setVisible} />
         </Dialog>

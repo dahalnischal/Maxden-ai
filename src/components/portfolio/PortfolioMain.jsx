@@ -1,6 +1,7 @@
 import { Dialog } from "primereact/dialog";
 import React from "react";
 import { useState } from "react";
+// import ContactDialog from "../Dialog/ContactDialog";
 import ContactDialog from "../Dialog/ContactDialog";
 const PortfolioMain = () => {
   const [visible, setVisible] = useState(false);
@@ -25,7 +26,7 @@ const PortfolioMain = () => {
           visible={visible}
           className="hide-sidebar-dialog"
           showHeader={false}
-          position={"top"}
+          position={"center"}
         >
           <ContactDialog setVisible={setVisible} />
         </Dialog>
